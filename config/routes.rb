@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "tops#index"
+  get 'terms', to: 'tops#terms'
+  get 'privacy', to: 'tops#privacy'
+
 end
