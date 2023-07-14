@@ -86,7 +86,5 @@ test:
 #
 production:
   url: <%= ENV['DATABASE_URL'] %>
-  # <<: *default
-  # database: RubyAru_production
-  # username: RubyAru
-  # password: <%= ENV["RUBYARU_DATABASE_PASSWORD"] %>
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
