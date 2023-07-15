@@ -16,6 +16,7 @@
                 </div>
             </div>
         </div>
+        <%= link_to 'ログアウト', logout_path, class: 'btn btn-success py-3 px-lg-4 d-none d-lg-block' ,data: {turbo_method: :delete} %>
         <%= link_to 'ランキング', login_path, class: 'btn btn-success py-3 px-lg-4 d-none d-lg-block' %>
         <%= link_to 'マイページ', new_user_path, class: 'btn btn-primary py-3 px-lg-4 d-none d-lg-block' %>
     </div>
