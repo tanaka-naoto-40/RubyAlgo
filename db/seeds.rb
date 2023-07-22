@@ -5,3 +5,50 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# Category.find_or_create_by(
+#   id: 1,
+#   name: "基礎編"
+# )
+# Category.find_or_create_by(
+#   id: 2,
+#   name: "応用編"
+# )
+# Category.find_or_create_by(
+#   id: 3,
+#   name: "実践編"
+# )
+Lesson.find_or_create_by(
+  id: 1,
+  category_id: 1,
+  title: '問題１',
+  content: '次のプログラムの実行結果として正しいものを選んでください。',
+  published: true
+)
+Lesson.find_or_create_by(
+  id: 2,
+  category_id: 1,
+  title: '問題2',
+  content: '次のプログラムの実行結果として正しいものを選んでください。',
+  published: true
+)
+Lesson.find_or_create_by(
+  id: 3,
+  category_id: 1,
+  title: '問題3',
+  content: '次のプログラムの実行結果として正しいものを選んでください。',
+  published: true
+)
+Lesson.find_or_create_by(
+  id: 4,
+  category_id: 2,
+  title: '問題１',
+  content: '次のプログラムの実行結果として正しいものを選んでください。',
+  published: true
+)
+Lesson.find_or_create_by(
+  id: 5,
+  category_id: 3,
+  title: '問題１',
+  content: '次のプログラムの実行結果として正しいものを選んでください。',
+  published: true
+)

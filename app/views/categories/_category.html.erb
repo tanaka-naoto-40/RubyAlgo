@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="course-item bg-light">
+    <div class="position-relative overflow-hidden">
+      <%= image_tag 'course-1.jpg', class: 'img-fluid' %>
+    </div>
+    <div class="text-center p-4 pb-0">
+      <h3><%= link_to category.name, category_lessons_path(category), class: 'mb-0' %></h3>
+      <div class="mb-3">
+        <% category.id.times do %>
+          <small class="fa fa-star text-primary"></small>
+        <% end %>
+      </div>
+      <h5 class="mb-4"><%= category.name %>説明文</h5>
+    </div>
+  </div>
+</div>
