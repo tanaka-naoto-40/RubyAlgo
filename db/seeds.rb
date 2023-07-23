@@ -5,18 +5,18 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# Category.find_or_create_by(
-#   id: 1,
-#   name: "基礎編"
-# )
-# Category.find_or_create_by(
-#   id: 2,
-#   name: "応用編"
-# )
-# Category.find_or_create_by(
-#   id: 3,
-#   name: "実践編"
-# )
+Category.find_or_create_by(
+  id: 1,
+  name: "基礎編"
+)
+Category.find_or_create_by(
+  id: 2,
+  name: "応用編"
+)
+Category.find_or_create_by(
+  id: 3,
+  name: "実践編"
+)
 Lesson.find_or_create_by(
   id: 1,
   category_id: 1,
