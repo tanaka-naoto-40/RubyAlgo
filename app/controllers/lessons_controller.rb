@@ -1,12 +1,19 @@
 class LessonsController < ApplicationController
   def show
-    # @category = Category.find_by(name: params[:name])
-    @lessons = @category.lessons
+    @lesson = Lesson.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @lessons = @category.lessons.where(published: true)
+    @answers = @lesson.answers
   end
+
   def index
     @category = Category.find(params[:category_id])
-    # binding.pry
-    @lessons = @category.lessons
+    @course = Course.find(params[:course_id])
+    @lessons = @course.lessons.where(published: true)
+  end
+
+  def result
+    
   end
 
 end

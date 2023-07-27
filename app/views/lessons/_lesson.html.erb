@@ -5,7 +5,9 @@
         <div>
           <h5 class="mb-2"><%= lesson.title %></h5>
           <p class="mb-0"><%= lesson.content %></p>
-          <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">Learn More</a>
+          <% lesson.answers.each do |answer| %>
+            <p class="mb-0"><%= answer.content %></p>
+          <% end %>
         </div>
         <li class="social-icon-item ms-auto">
           <a href="#" class="social-icon-link bi bi-heart"></a>
