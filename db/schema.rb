@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_141339) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.text "content", null: false
+    t.boolean "answer", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_answers_on_lesson_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -20,15 +29,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_141339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.string "name", null: false
+    t.string "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_courses_on_category_id"
+  end
+
   create_table "lessons", force: :cascade do |t|
-    t.bigint "category_id"
+    t.bigint "course_id"
     t.string "title", null: false
     t.text "content", null: false
     t.text "tips"
     t.boolean "published", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_lessons_on_category_id"
+    t.index ["course_id"], name: "index_lessons_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_141339) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "lessons", "categories"
+  add_foreign_key "answers", "lessons"
+  add_foreign_key "courses", "categories"
+  add_foreign_key "lessons", "courses"
 end
