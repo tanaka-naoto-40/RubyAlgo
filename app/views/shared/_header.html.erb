@@ -6,19 +6,11 @@
     </h2>
   <% end %>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">問題一覧</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="team.html" class="dropdown-item">基礎編</a>
-                    <a href="testimonial.html" class="dropdown-item">応用編</a>
-                    <a href="404.html" class="dropdown-item">実践編</a>
-                </div>
-            </div>
-        </div>
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
         <%= link_to 'ログアウト', logout_path, class: 'btn btn-success py-3 px-lg-4 d-none d-lg-block' ,data: {turbo_method: :delete} %>
         <%= link_to 'ランキング', login_path, class: 'btn btn-success py-3 px-lg-4 d-none d-lg-block' %>
         <%= link_to 'マイページ', new_user_path, class: 'btn btn-primary py-3 px-lg-4 d-none d-lg-block' %>
+      </div>
     </div>
 </nav>
 <!-- Navbar End -->

@@ -4,7 +4,7 @@
       <%= image_tag 'course-1.jpg', class: 'img-fluid' %>
     </div>
     <div class="text-center p-4 pb-0">
-      <h3><%= link_to category.name, category_lessons_path(category), class: 'mb-0' %></h3>
+      <h3><%= link_to category.name, category_path(category), class: 'mb-0' %></h3>
       <div class="mb-3">
         <% category.id.times do %>
           <small class="fa fa-star text-primary"></small>
