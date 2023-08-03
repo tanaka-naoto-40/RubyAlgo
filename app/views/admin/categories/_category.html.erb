@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <%= category.id %>
+  </td>
+  <td>
+    <%= category.name %>
+  </td>
+  <%
+=begin%>
+ <td>
+    <%= link_to t('defaults.show'), admin_lesson_path(lesson), class: 'btn btn-info' %>
+    <%= link_to t('defaults.edit'), edit_admin_lesson_path(lesson), class: 'btn btn-success' %>
+    <%= link_to t('defaults.delete'), admin_lesson_path(lesson), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+  </td> 
+<%
+=end%>
+</tr>

@@ -1,21 +1,3 @@
-<%
-=begin%>
- <h1>Quiz Results</h1>
-<% @results.each do |lesson_id, result| %>
-  <div>
-    <h2><%= result[:lesson_title] %></h2>
-    <p><%= result[:lesson_content] %></p>
-    <p>You chose: <%= result[:answer_content] %></p>
-    <% if result[:correct] %>
-      <p class="correct">Correct!</p>
-    <% else %>
-      <p class="incorrect">Incorrect.</p>
-    <% end %>
-  </div>
-<% end %> 
-<%
-=end%>
-
 <% @results.each do |lesson_id, result| %>
 <div class="col-lg-6 col-12 mt-3 mx-auto">
   <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">

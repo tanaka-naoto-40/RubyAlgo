@@ -1,9 +1,3 @@
-<%
-=begin%>
- <%= render @lessons %>  
-<%
-=end%>
-
 <%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
   <%= render partial: 'lesson', collection: @lessons, locals: { form: form } %>
   <div class="container text-center">
