@@ -1,0 +1,64 @@
+<!-- Sidebar Start -->
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div>
+    <h2 class="m-0 text-primary">
+      <i class="bi bi-pc-display-horizontal"></i>Admin
+    </h2>
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <h4>Home</h4>
+        </li>
+        <li class="sidebar-item">
+          <%= link_to "Dashboard", admin_root_path, class: 'sidebar-link' %>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <h4>Questions</h4>
+        </li>
+        <li class="sidebar-item">
+          <%= link_to "Category", admin_categories_path, class: 'sidebar-link' %>
+        </li>
+        <li class="sidebar-item">
+          <%= link_to "Course", admin_courses_path, class: 'sidebar-link' %>
+        </li>
+        <li class="sidebar-item">
+          <%= link_to "Lesson", admin_lessons_path, class: 'sidebar-link' %>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+            <span>
+              <i class="ti ti-typography"></i>
+            </span>
+            <span class="hide-menu">User</span>
+          </a>
+        </li>
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+          <h4>AUTH</h4>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+            <span>
+              <i class="ti ti-login"></i>
+            </span>
+            <span class="hide-menu">Login</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+            <span>
+              <i class="ti ti-user-plus"></i>
+            </span>
+            <span class="hide-menu">Logout</span>
+          </a>
+        </li>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>
+<!--  Sidebar End -->

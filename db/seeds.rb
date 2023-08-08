@@ -55,13 +55,6 @@ Lesson.find_or_create_by(
   content: '次のプログラムの実行結果として正しいものを選んでください。',
   published: true
 )
-Lesson.find_or_create_by(
-  id: 3,
-  course_id: 1,
-  title: '問題3',
-  content: '次のプログラムの実行結果として正しいものを選んでください。',
-  published: true
-)
 Answer.find_or_create_by(
   id: 1,
   lesson_id: 1,
