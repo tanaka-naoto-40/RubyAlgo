@@ -15,9 +15,8 @@ class Admin::LessonsController < Admin::BaseController
 
   def create
     @lesson = Lesson.new(lesson_params)
-
     if @lesson.save
-      redirect_to admin_lesson_path(@lesson)
+      redirect_to admin_lessons_path, notice: 'Lessonを作成しました'
     else
       render :new
     end
@@ -25,7 +24,7 @@ class Admin::LessonsController < Admin::BaseController
 
   def update
     if @lesson.update(lesson_params)
-      redirect_to admin_lesson_path(@lesson)
+      redirect_to admin_lesson_path(@lesson), notice: 'Lessonを更新しました'
     else
       render :edit
     end
@@ -33,7 +32,7 @@ class Admin::LessonsController < Admin::BaseController
 
   def destroy
     @lesson.destroy!
-    redirect_to admin_lessons_path
+    redirect_to admin_lessons_path, notice: 'Lessonを削除しました'
   end
 
   private

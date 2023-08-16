@@ -24,7 +24,7 @@ class Admin::CoursesController < Admin::BaseController
 
   def update
     if @course.update(course_params)
-      redirect_to admin_courses_path, notice: 'Courseを更新しました'
+      redirect_to admin_course_path(@course), notice: 'Courseを更新しました'
     else
       render :edit
     end

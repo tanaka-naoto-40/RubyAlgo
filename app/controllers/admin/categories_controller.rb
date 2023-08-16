@@ -24,7 +24,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def update
     if @category.update(category_params)
-      redirect_to admin_categories_path, notice: 'Categoryを更新しました'
+      redirect_to admin_category_path(@category), notice: 'Categoryを更新しました'
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy!
-    redirect_to admin_category_path, notice: 'Categoryを削除しました'
+    redirect_to admin_categories_path, notice: 'Categoryを削除しました'
   end
 
   private
