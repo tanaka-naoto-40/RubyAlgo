@@ -7,7 +7,7 @@
   </td>
   <td>
     <%= link_to "Show", admin_category_path(category), class: 'btn btn-info' %>
-    <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-success', data: { turbo_frame: "modal" } %>
+    <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-success' %>
     <%= link_to "Delete", admin_category_path(category), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %> 
   </td> 
 </tr>

@@ -15,9 +15,8 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.new(category_params)
-
     if @category.save
-      redirect_to admin_categories_path
+      redirect_to admin_categories_path, notice: 'Categoryを作成しました'
     else
       render :new
     end
@@ -25,7 +24,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def update
     if @category.update(category_params)
-      redirect_to admin_categories_path
+      redirect_to admin_categories_path, notice: 'Categoryを更新しました'
     else
       render :edit
     end
@@ -33,7 +32,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category.destroy!
-    redirect_to admin_category_path
+    redirect_to admin_category_path, notice: 'Categoryを削除しました'
   end
 
   private

@@ -1,0 +1,22 @@
+<%= form_with model: [:admin, @course], local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :categoryid %>
+    <%= f.collection_select :category_id, Category.all, :id, :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :id %>
+    <%= f.text_field :id, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <div data-controller="codemirror" data-codemirror-doc-value="<%= f.object.content %>">
+      <div data-codemirror-target="editor"></div>
+      <%= f.hidden_field :content, class: 'form-control', data: {codemirror_target: "input"}, rows: 10 %>
+    </div>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
