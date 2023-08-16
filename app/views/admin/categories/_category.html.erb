@@ -3,15 +3,11 @@
     <%= category.id %>
   </td>
   <td>
-    <%= category.name %>
+    <%= link_to category.title, admin_category_path(category) %>
   </td>
-  <%
-=begin%>
- <td>
-    <%= link_to t('defaults.show'), admin_lesson_path(lesson), class: 'btn btn-info' %>
-    <%= link_to t('defaults.edit'), edit_admin_lesson_path(lesson), class: 'btn btn-success' %>
-    <%= link_to t('defaults.delete'), admin_lesson_path(lesson), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+  <td>
+    <%= link_to "Show", admin_category_path(category), class: 'btn btn-info' %>
+    <%= link_to "Edit", edit_admin_category_path(category), class: 'btn btn-success', data: { turbo_frame: "modal" } %>
+    <%= link_to "Delete", admin_category_path(category), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %> 
   </td> 
-<%
-=end%>
 </tr>

@@ -24,14 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "title", null: false
+    t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "courses", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.string "name", null: false
+    t.string "title", null: false
     t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.bigint "course_id"
+    t.bigint "course_id", null: false
     t.string "title", null: false
     t.text "content", null: false
     t.text "tips"

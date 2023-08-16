@@ -29,6 +29,6 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :content)
+    params.require(:course).permit(:title, :content)
   end
 end

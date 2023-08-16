@@ -5,7 +5,23 @@ class Admin::LessonsController < Admin::BaseController
     @lessons = Lesson.all
   end
 
+  def show; end
+
+  def new
+    @lesson = Lesson.new
+  end
+
   def edit; end
+
+  def create
+    @lesson = Lesson.new(lesson_params)
+
+    if @lesson.save
+      redirect_to admin_lesson_path(@lesson)
+    else
+      render :new
+    end
+  end
 
   def update
     if @lesson.update(lesson_params)
@@ -15,8 +31,6 @@ class Admin::LessonsController < Admin::BaseController
     end
   end
 
-  def show; end
-
   def destroy
     @lesson.destroy!
     redirect_to admin_lessons_path
@@ -25,10 +39,10 @@ class Admin::LessonsController < Admin::BaseController
   private
 
   def set_lesson
-    @lesson = lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :content, :tips, :published)
+    params.require(:lesson).permit(:course_id, :title, :content, :tips, :published)
   end
 end
