@@ -2,7 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 import { EditorView, basicSetup } from "codemirror"
 import { autocompletion } from "@codemirror/autocomplete"
 import { json } from "@codemirror/lang-json"
-import { theme } from "codemirror/theme/mbo.css"
 import {StreamLanguage} from "@codemirror/language"
 import {ruby} from "@codemirror/legacy-modes/mode/ruby"
 
