@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   def result
     @selected_answers = params[:answers]
     @results = {}
-    params[:answers].each do |lesson_id, answer_id|
+    params[:answers]&.each do |lesson_id, answer_id|
       lesson = Lesson.find(lesson_id) # Find the lesson
       answer = Answer.find(answer_id)
       @results[lesson_id] = { 

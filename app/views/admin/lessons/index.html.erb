@@ -22,12 +22,13 @@
                         <th scope="col">ID</th>
                         <th scope="col">名前</th>
                         <th scope="col">本文</th>
-                        <th scope="col">ヒント</th>
-                        <th scope="col">公開</th>
+                        <th scope="col">
+                          <%= link_to "新規作成", new_admin_lesson_path, class: "btn btn-outline-primary" %>
+                        </th>
                       </tr>
                       </thead>
                       <tbody>
-                      <%= render @lessons %>
+                        <%= render @lessons %>
                       </tbody>
                     </table>
                   </div>

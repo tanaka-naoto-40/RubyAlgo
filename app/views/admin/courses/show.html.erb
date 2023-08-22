@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1>Show Course</h1>
+      <div class="text-right mb-3">
+        <%= link_to "Index", admin_courses_path, class: 'btn btn-info' %>
+        <%= link_to "Edit", edit_admin_course_path(@course), class: 'btn btn-success' %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row">名前</th>
+          <td><%= @course.title %></td>
+        </tr>
+        <tr>
+          <th scope="row">本文</th>
+          <td><pre><code><%= @course.content %></code></pre></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

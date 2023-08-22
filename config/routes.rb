@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    resources :categories, only: [:index, :show, :edit, :update, :destroy]
-    resources :courses, only: [:index, :show, :edit, :update, :destroy]
-    resources :lessons, only: [:index, :show, :edit, :update, :destroy]
+    resources :categories
+    resources :courses
+    resources :lessons
   end
 end

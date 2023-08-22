@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-lg-16 d-flex align-items-stretch">
           <div class="card w-100">
-            <div class="class="container-fluid"">
+            <div class="container-fluid">
               <div class="container mb-5 pt-2">
                 <h1>Category</h1>
                 <div class="row">
@@ -21,11 +21,15 @@
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">名前</th>
-                        <th scope="col">説明</th>
+                        <th scope="col">
+                          <%= link_to "新規作成", new_admin_category_path(@category),class: "btn btn-outline-primary" %>
+                        </th>
                       </tr>
                       </thead>
                       <tbody>
-                      <%= render @categories %>
+                        <div id="categories">
+                          <%= render @categories %>
+                        </div>
                       </tbody>
                     </table>
                   </div>

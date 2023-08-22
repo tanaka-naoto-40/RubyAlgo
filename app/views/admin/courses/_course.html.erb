@@ -3,18 +3,11 @@
     <%= course.id %>
   </td>
   <td>
-    <%= course.name %>
+    <%= link_to course.title, admin_course_path(course) %>
   </td>
   <td>
-    <%= course.content %>
+    <%= link_to "Show", admin_course_path(course), class: 'btn btn-info' %>
+    <%= link_to "Edit", edit_admin_course_path(course), class: 'btn btn-success' %>
+    <%= link_to "Delete", admin_course_path(course), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %> 
   </td>
-  <%
-=begin%>
- <td>
-    <%= link_to t('defaults.show'), admin_lesson_path(lesson), class: 'btn btn-info' %>
-    <%= link_to t('defaults.edit'), edit_admin_lesson_path(lesson), class: 'btn btn-success' %>
-    <%= link_to t('defaults.delete'), admin_lesson_path(lesson), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
-  </td> 
-<%
-=end%>
 </tr>
