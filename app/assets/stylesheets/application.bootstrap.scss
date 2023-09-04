@@ -1,5 +1,15 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'bootstrap.min';
-@import 'templatemo-topic-listing';
-
+.cm-editor { 
+  height: 400px; 
+  border: 1px solid #ddd; 
+  background: #2c2c2c;
+}
+.cm-scroller { 
+  overflow: auto; 
+}
+.ͼ2 .cm-gutters {
+  background-color: #3b3b3b;
+  border: none;
+}
