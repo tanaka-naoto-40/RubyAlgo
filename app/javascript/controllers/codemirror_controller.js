@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 import { EditorView, basicSetup } from "codemirror"
-import { autocompletion } from "@codemirror/autocomplete"
 import { json } from "@codemirror/lang-json"
 import {StreamLanguage} from "@codemirror/language"
 import {ruby} from "@codemirror/legacy-modes/mode/ruby"
+
+
 
 export default class extends Controller {
   static targets = ["editor", "input"]
