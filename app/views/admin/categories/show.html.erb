@@ -17,7 +17,7 @@
         </tr>
         <tr>
           <th scope="row">本文</th>
-          <td><pre><code><%= @category.content %></code></pre></td>
+          <td><%= markdown(@category.content) %></td>
         </tr>
       </table>
     </div>

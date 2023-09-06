@@ -47,6 +47,8 @@ gem "bootsnap", require: false
 gem 'sorcery'
 gem 'rails-i18n'
 gem 'pry-byebug'
+gem 'redcarpet'
+gem 'rouge'
 
 # Use Sass to process CSS
 gem "sassc-rails"
