@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-12 custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+      <div class="lesson">
+        <h5 class="mb-2"><%= lesson.title %></h5>
+        <p class="mb-0"><%= lesson.content %></p>
+      </div>
+    </div>
+    <div class="col-lg-6 col-12 m-auto">
+      <div class="form-group">
+        <%= form.label :content %>
+        <div data-controller="codemirror" data-codemirror-doc-value="<%= lesson.content %>">
+          <div data-codemirror-target="editor">
+            <%= form.hidden_field :content, class: 'form-control', data: {codemirror_target: "input"} %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
