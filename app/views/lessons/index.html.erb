@@ -1,6 +1,15 @@
-<%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
-  <%= render partial: 'lesson', collection: @lessons, locals: { form: form } %>
-  <div class="container text-center">
-  <%= form.submit '回答する', class: 'btn custom-btn mt-3 mt-lg-4' %>
-  </div>
-<% end %>
+<% if @category.id < 2 %>
+  <%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
+    <%= render partial: 'lesson', collection: @lessons, locals: { form: form } %>
+    <div class="container text-center">
+      <%= form.submit '回答する', class: 'btn custom-btn mt-3 mt-lg-4' %>
+    </div>
+  <% end %>
+<% else %>
+  <%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
+    <%= render partial: 'with_editor_lesson', collection: @lessons, as: :lesson, locals: { form: form } %>
+    <div class="container text-center">
+      <%= form.submit '実行', class: 'btn custom-btn mt-3 mt-lg-4' %>
+    </div>
+  <% end %>
+<% end %> 

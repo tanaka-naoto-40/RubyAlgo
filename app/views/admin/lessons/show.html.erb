@@ -17,11 +17,11 @@
         </tr>
         <tr>
           <th scope="row">本文</th>
-          <td><pre><code><%= @lesson.content %></code></pre></td>
+          <td><%= markdown(@lesson.content) %></td>
         </tr>
         <tr>
           <th scope="row">ヒント</th>
-          <td><pre><code><%= @lesson.tips %></code></pre></td>
+          <td><%= markdown(@lesson.tips) %></td>
         </tr>
         <tr>
           <th scope="row">公開</th>
