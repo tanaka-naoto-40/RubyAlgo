@@ -3,11 +3,12 @@
   <head>
     <title>RubyAru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
@@ -18,5 +19,9 @@
     <% end %>
       <%= yield %>
     <%= render 'shared/footer' %> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/ruby/ruby.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.3.0-2022-09-29-a/dist/browser.umd.js"></script>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </body>
 </html>

@@ -9,7 +9,11 @@
   <%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
     <%= render partial: 'with_editor_lesson', collection: @lessons, as: :lesson, locals: { form: form } %>
     <div class="container text-center">
-      <%= form.submit '実行', class: 'btn custom-btn mt-3 mt-lg-4' %>
+      <%
+=begin%>
+ <%= form.submit '実行', class: 'btn custom-btn mt-3 mt-lg-4' %> 
+<%
+=end%>
     </div>
   <% end %>
 <% end %> 

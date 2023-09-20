@@ -1,15 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'bootstrap.min';
+@import 'admin';
 @import 'templatemo-topic-listing';
-@import 'monokai';
 
 .cm-editor { 
   height: 400px; 
   border: 1px solid #ddd; 
   background: #2c2c2c;
   color: #ffffff;
-
 }
 .cm-scroller { 
   overflow: auto; 
@@ -18,4 +17,26 @@
   background-color: #3b3b3b;
   border: none;
   color: #a0a0a0;
+}
+.cm-s-default { 
+  height: 400px; 
+  border: 1px solid #ddd; 
+  background: #2c2c2c;
+  color: #ffffff;
+
+}
+.CodeMirror-scroll { 
+  overflow: auto; 
+}
+.CodeMirror-gutters {
+  background-color: #3b3b3b;
+  border: none;
+  color: #a0a0a0;
+}
+.cm-output {
+  height: 100px; 
+  width: 100%; 
+  border: 1px solid #ddd; 
+  background: #1a3c4b;
+  color: #ffffff;
 }
