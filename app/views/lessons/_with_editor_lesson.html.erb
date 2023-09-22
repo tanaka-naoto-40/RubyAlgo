@@ -1,44 +1,38 @@
-<div class="container">
-  <div class="row">
-  
-              <div class="col-lg-6 mt-3 mx-auto">
-                <div class="custom-block-topics-listing bg-white shadow-lg mb-5">
-                  <div class="d-flex">
-                    <div class="custom-block-topics-listing-info d-flex">
-                      <div class="lesson">
-          <h5 class="mb-2"><%= lesson.title %></h5>
-          <p class="mb-0"><%= lesson.content %></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="custom-block-topics-listing bg-white shadow-lg mb-5">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              ヒント
-            </button>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <%= lesson.tips %>
-              </div>
-            </div>
+<div class="row">
+  <div class="col-lg-6 mt-3 mx-auto">
+    <div class="custom-block-topics-listing bg-white shadow-lg mb-5">
+      <div class="d-flex">
+        <div class="custom-block-topics-listing-info d-flex">
+          <div class="lesson">
+            <h5 class="mb-2"><%= lesson.title %></h5>
+            <p class="mb-0"><%= lesson.content %></p>
           </div>
-              </div>
-
-
-
-
-
-    <div class="col-lg-6 col-12 m-auto">
-      <h6 class="code-title">Editor</h6>
-      <textarea id="txt-editor">
-        <%= lesson.tips %>
-      </textarea>
-      <div class="d-flex align-items-center my-1">
-        <h6 class="code-title flex-grow-1">Output</h6>
-        <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-default bg-education", id: "run" %>
+        </div>
       </div>
-      <%= form.text_area :content, class: 'txt-editor cm-output', id: "output", placeholder: "出力", readonly: true %>
     </div>
+    <div class="custom-block-topics-listing bg-white shadow-lg mb-5">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        ヒント
+      </button>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <%= lesson.hints %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6 mt-2 m-auto">
+  <h6 class="code-title">Editor</h6>
+  <textarea id="txt-editor">
+<%= lesson.starter_code %>
+  </textarea>
+  <div class="d-flex align-items-center my-1">
+    <h6 class="code-title flex-grow-1">Output</h6>
+    <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-default bg-education", id: "run" %>
+    <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-primary bg-education", id: "run" %>
+  </div>
+  <%= form.text_area :content, class: 'txt-editor cm-output', id: "output", placeholder: "出力", readonly: true %>
+</div>
     <%
 =begin%>
  <div class="col-lg-6 col-12 m-auto">
@@ -52,5 +46,3 @@
     </div> 
 <%
 =end%>
-  </div>
-</div>
