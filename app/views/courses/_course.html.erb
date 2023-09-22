@@ -2,7 +2,7 @@
   <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
     <div class="d-flex">
       <div class="custom-block-topics-listing-info d-flex">
-        <div>
+        <div class="course">
           <h5 class="mb-2"><%= course.title%></h5>
           <p class="mb-0"><%= course.content%></p>
           <%= link_to "問題を解く", category_lessons_path(course.category_id, course_id: course.id), class: 'btn custom-btn mt-3 mt-lg-4' %>

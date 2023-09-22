@@ -43,7 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
     t.bigint "course_id", null: false
     t.string "title", null: false
     t.text "content", null: false
-    t.text "tips"
+    t.text "hints"
+    t.text "starter_code"
     t.boolean "published", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
