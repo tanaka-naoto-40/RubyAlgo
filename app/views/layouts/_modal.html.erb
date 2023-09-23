@@ -1,3 +1,6 @@
+<%# `"modal"`という<turbo-frame>で囲う %>
+<%= turbo_frame_tag "modal" do %>
+  <%# modalコントローラーをアタッチする %>
   <div class="modal fade" data-controller="modal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -11,3 +14,4 @@
       </div>
     </div>
   </div>
+<% end %>

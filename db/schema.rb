@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   create_table "answers", force: :cascade do |t|
     t.bigint "lesson_id", null: false
     t.text "content", null: false
+    t.text "explanation"
     t.boolean "answer", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

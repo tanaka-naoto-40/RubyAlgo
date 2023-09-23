@@ -7,6 +7,13 @@ class LessonsController < ApplicationController
     @lessons = @course.lessons.where(published: true)
   end
 
+  def show
+    @category = Category.find(params[:category_id])
+    @courses = @category.courses
+    @lesson = Lesson.find_by(course_id: @courses.first.id)
+    binding.pry
+  end
+
   def result
     @selected_answers = params[:answers]
     @results = {}
@@ -24,6 +31,4 @@ class LessonsController < ApplicationController
       # binding.pry
     end
   end
-
-
 end

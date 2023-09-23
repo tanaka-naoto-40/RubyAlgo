@@ -1,0 +1,42 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <div class="container-fluid">
+      <!--  Row 1 -->
+      <div class="row">
+        <div class="col-lg-16 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="class="container-fluid"">
+              <div class="container mb-5 pt-2">
+                <h1>Answer</h1>
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th scope="col">Lesson名</th>
+                        <th scope="col">本文</th>
+                        <th scope="col">
+                          <%= link_to "新規作成", new_admin_lesson_answer_path, class: "btn btn-outline-primary" %>
+                        </th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <%= render @answers %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
