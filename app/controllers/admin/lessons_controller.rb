@@ -5,7 +5,9 @@ class Admin::LessonsController < Admin::BaseController
     @lessons = Lesson.all
   end
 
-  def show; end
+  def show
+    @answers = @lesson.answers
+  end
 
   def new
     @lesson = Lesson.new

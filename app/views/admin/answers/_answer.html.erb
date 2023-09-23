@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= @lesson.title %>
+  </td>
+  <td>
+    <%= answer.content %>
+  </td>
+  <td> 
+    <%= link_to "Show", admin_answer_path(answer), class: 'btn btn-info' %>
+    <%= link_to "Edit", edit_admin_answer_path(answer), class: 'btn btn-success' %>  
+    <%= link_to "Delete", admin_answer_path(answer), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %> 
+  </td> 
+</tr>

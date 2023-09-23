@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import CodemirrorController from "./codemirror_controller"
 application.register("codemirror", CodemirrorController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)

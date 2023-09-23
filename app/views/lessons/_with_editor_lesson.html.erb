@@ -29,7 +29,7 @@
   <div class="d-flex align-items-center my-1">
     <h6 class="code-title flex-grow-1">Output</h6>
     <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-default bg-education", id: "run" %>
-    <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-primary bg-education", id: "run" %>
+    <%= link_to "答え合わせ", category_lesson_path(@category, @lesson), class: "btn btn-sm btn-outline-primary me-2" %>
   </div>
   <%= form.text_area :content, class: 'txt-editor cm-output', id: "output", placeholder: "出力", readonly: true %>
 </div>
