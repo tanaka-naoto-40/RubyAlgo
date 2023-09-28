@@ -1,38 +1,28 @@
 <% @results.each do |lesson_id, result| %>
-<div class="col-lg-6 col-12 mt-3 mx-auto">
-  <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-    <div class="d-flex">
-      <div class="custom-block-topics-listing-info d-flex">
-        <div>
+  <div class="col-lg-6 col-12 mt-3 mx-auto">
+    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+      <div class="d-flex">
+        <div class="custom-block-topics-listing-info d-flex">
+          <div>
 
-          <% if result[:correct] %>
-            <h4 class="text-primary">正解！</h4>
-          <% else %>
-            <h4 class="text-danger">不正解</h4>
-          <% end %>
-            <div class="lesson">
-              <h5 class="mb-2"><%= result[:lesson_title] %></h5>
-              <p class="mb-0"><%= result[:lesson_content] %></p>
-              <% result[:lesson_answers].each do |answer| %>
-                <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s %>
-                <% %>
-                <label><%= answer.content %></label><br>
-              <% end %>
-            </div>
+            <% if result[:correct] %>
+              <h4 class="text-primary">正解！</h4>
+            <% else %>
+              <h4 class="text-danger">不正解</h4>
+            <% end %>
+              <div class="lesson">
+                <h5 class="mb-2"><%= result[:lesson_title] %></h5>
+                <p class="mb-0"><%= result[:lesson_content] %></p>
+                <% result[:lesson_answers].each do |answer| %>
+                  <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s %>
+                  <% %>
+                  <label><%= answer.content %></label><br>
+                <% end %>
+              </div>
 
+          </div>
         </div>
-        <%
-=begin%>
- <li class="social-icon-item ms-auto">
-          <a href="#" class="social-icon-link bi bi-heart"></a>
-        </li>
-        <li class="social-icon-item ms-auto">
-          <a href="#" class="social-icon-link bi bi-heart-fill"></a>
-        </li> 
-<%
-=end%>
       </div>
     </div>
   </div>
-</div>
 <% end %>

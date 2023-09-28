@@ -5,9 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # binding.pry
     if @user.save
-      redirect_to root_path#, success: t('.success')
+      redirect_to root_path
     else
       flash.now[:danger] = 'fail'
       render :new

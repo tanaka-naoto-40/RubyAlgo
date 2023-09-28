@@ -1,0 +1,12 @@
+  <div id="answerModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4><%= title %></h4>
+        <span class="modalClose">×</span>
+      </div>
+      <div class="modal-body">
+        <%= text_area_tag 'starter_code', lesson.answers.first.content, class: 'txt-editor cm-output', readonly: true %>
+      </div>
+    </div>
+  </div>
+

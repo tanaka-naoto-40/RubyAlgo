@@ -20,3 +20,4 @@ window.addEventListener("DOMContentLoaded", event => {
 
   document.getElementById("run").disabled = true;
 });
+
