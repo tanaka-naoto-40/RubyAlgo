@@ -50,6 +50,6 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def answer_params
-    params.require(:answer).permit(:lesson_id, :content, :explanation, :answer)
+    params.require(:answer).permit(:lesson_id, :content, :explanation, :correct_code, :answer)
   end
 end
