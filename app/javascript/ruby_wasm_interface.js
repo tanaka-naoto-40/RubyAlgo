@@ -1,6 +1,6 @@
 let RubyModule;
 const { DefaultRubyVM } = window["ruby-wasm-wasi"];
-const main = async () => {
+window.main = async function main() {
   const response = await fetch(
     "https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.3.0-2022-09-29-a/dist/ruby+stdlib.wasm"
   );
@@ -27,7 +27,7 @@ const main = async () => {
 };
 main();
 
-async function run(){
+window.run = async function run(){
   const script = editor.getValue();
   const outputTextarea = document.getElementById("output");
   const { vm } = await DefaultRubyVM(RubyModule);
@@ -57,7 +57,4 @@ end
   runButton.innerText = "▶コード実行";
 }
 
-async function judge(){
-  const result = document.getElementById(`output`).value.trim();
 
-}

@@ -1,0 +1,25 @@
+  <div id="correctModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>正解</h4>
+        <span class="modalClose">×</span>
+      </div>
+      <div class="modal-body">
+        <p>おめでとうございます!!
+           次の問題にも挑戦してみましょう！</p>
+        <<%= link_to "別の問題に挑戦する", category_path(@category) %>>
+      </div>
+    </div>
+  </div>
+
+  <div id="incorrectModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>不正解</h4>
+        <span class="modalClose">×</span>
+      </div>
+      <div class="modal-body">
+        不正解
+      </div>
+    </div>
+  </div>
