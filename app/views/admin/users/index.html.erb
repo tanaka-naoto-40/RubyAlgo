@@ -1,0 +1,41 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <div class="container-fluid">
+      <!--  Row 1 -->
+      <div class="row">
+        <div class="col-lg-16 d-flex align-items-stretch">
+          <div class="card w-100">
+            <div class="container-fluid">
+              <div class="container mb-5 pt-2">
+                <h1>User</h1>
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">名前</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <div id="users">
+                          <%= render @users %>
+                        </div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
