@@ -58,12 +58,12 @@
 #   content: '次のプログラムの実行結果として正しいものを選んでください。',
 #   published: true
 # )
-Answer.find_or_create_by(
-  id: 1,
-  lesson_id: 1,
-  content: '選択肢１',
-  answer: true
-)
+# Answer.find_or_create_by(
+#   id: 1,
+#   lesson_id: 1,
+#   content: '選択肢１',
+#   answer: true
+# )
 # Answer.find_or_create_by(
 #   id: 2,
 #   lesson_id: 1,

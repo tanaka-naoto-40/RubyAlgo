@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_29_140756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_id"], name: "index_answers_on_lesson_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bookmarks_on_lesson_id"
+    t.index ["user_id", "lesson_id"], name: "index_bookmarks_on_user_id_and_lesson_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -56,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
+    t.integer "role", default: 0, null: false
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", null: false
@@ -64,6 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_043042) do
   end
 
   add_foreign_key "answers", "lessons"
+  add_foreign_key "bookmarks", "lessons"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "courses", "categories"
   add_foreign_key "lessons", "courses"
 end

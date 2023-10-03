@@ -3,27 +3,15 @@
     <div class="d-flex">
       <div class="custom-block-topics-listing-info d-flex">
         <div>
-
-            <div class="lesson">
-              <h5 class="mb-2"><%= lesson.title %></h5>
-              <p class="mb-0"><%= lesson.content %></p>
-              <% lesson.answers.each do |answer| %>
-                <%= form.radio_button "answers[#{lesson.id}]", answer.id %>
-                <%= form.label "answers[#{lesson.id}]", answer.content, value: answer.id %><br>
-              <% end %>
-            </div>
-
+          <div class="lesson">
+            <h5 class="mb-2"><%= lesson.title %></h5>
+            <p class="mb-0"><%= lesson.content %></p>
+            <% lesson.answers.each do |answer| %>
+              <%= form.radio_button "answers[#{lesson.id}]", answer.id %>
+              <%= form.label "answers[#{lesson.id}]", answer.content, value: answer.id %><br>
+            <% end %>
+          </div>
         </div>
-        <%
-=begin%>
- <li class="social-icon-item ms-auto">
-          <a href="#" class="social-icon-link bi bi-heart"></a>
-        </li>
-        <li class="social-icon-item ms-auto">
-          <a href="#" class="social-icon-link bi bi-heart-fill"></a>
-        </li> 
-<%
-=end%>
       </div>
     </div>
   </div>
