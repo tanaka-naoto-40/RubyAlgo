@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
-  resources :bookmarks, only: %i[index create destroy]
+  resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do
     resources :lessons, only: %i[index show] do
       collection do

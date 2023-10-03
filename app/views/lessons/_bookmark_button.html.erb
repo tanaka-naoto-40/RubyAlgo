@@ -1,0 +1,13 @@
+  <% if current_user.bookmark?(lesson) %>
+    <%= link_to bookmark_path(lesson), data: { turbo_method: :delete } do %>
+      <li class="social-icon-item ms-auto">
+        <div class="social-icon-link bi bi-heart-fill"></div>
+      </li>
+    <% end %>
+  <% else %>
+    <%= link_to bookmarks_path(lesson_id: lesson.id), data: { turbo_method: :post } do %>
+      <li class="social-icon-item ms-auto">
+        <div class="social-icon-link bi bi-heart"></div>
+      </li>
+    <% end %>
+  <% end %>
