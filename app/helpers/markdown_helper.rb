@@ -9,7 +9,7 @@ module MarkdownHelper
     options = {
       no_styles:     true,
       with_toc_data: true,
-      hard_wrap:     true,
+      hard_wrap:     true
     }
     extensions = {
       no_intra_emphasis:   true,
@@ -17,17 +17,17 @@ module MarkdownHelper
       fenced_code_blocks:  true,
       autolink:            true,
       lax_spacing:         true,
-      space_after_headers: true,
+      space_after_headers: true
     }
 
     renderer = CustomRenderHTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
-    markdown.render(text).html_safe
+    sanitize(markdown.render(text))
   end
 
   def toc(text)
     renderer = Redcarpet::Render::HTML_TOC.new(nesting_level: 3)
     markdown = Redcarpet::Markdown.new(renderer)
-    markdown.render(text).html_safe
+    sanitize(markdown.render(text))
   end
 end

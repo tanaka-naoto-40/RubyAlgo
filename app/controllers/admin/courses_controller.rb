@@ -30,7 +30,6 @@ class Admin::CoursesController < Admin::BaseController
     end
   end
 
-
   def destroy
     @course.destroy!
     redirect_to admin_courses_path, notice: 'Courseを削除しました'

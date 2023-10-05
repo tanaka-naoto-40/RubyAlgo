@@ -1,5 +1,5 @@
 class Lesson < ApplicationRecord
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   belongs_to :course
 

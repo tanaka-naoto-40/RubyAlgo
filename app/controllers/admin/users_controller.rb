@@ -3,7 +3,6 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     @users = User.all
-
   end
 
   def edit; end
@@ -15,7 +14,6 @@ class Admin::UsersController < Admin::BaseController
       render :edit
     end
   end
-
 
   def destroy
     @user.destroy!
