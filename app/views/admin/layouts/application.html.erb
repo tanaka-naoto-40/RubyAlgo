@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta lang='ja'>
-  <meta name="robots" content="noindex, nofollow">
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= stylesheet_link_tag 'admin', "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta lang='ja'>
+    <meta name="robots" content="noindex, nofollow">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'admin', "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  </head>
 
-<body>
-<div class="wrapper">
-  <aside class="left-sidebar">
-    <%= render 'admin/shared/sidebar' %>
-  </aside>
-  <div class="col">
-    <div class="main">
-      <div class="content">
-        <div class="container-fluid p-0">
-          <div id="flash">
-            <%= render 'shared/flash' %>
+  <body>
+    <div class="wrapper">
+      <aside class="left-sidebar">
+        <%= render 'admin/shared/sidebar' %>
+      </aside>
+      <div class="col">
+        <div class="main">
+          <div class="content">
+            <div class="container-fluid p-0">
+              <div id="flash">
+                <%= render 'shared/flash' %>
+              </div>
+              <%= yield %>
+            </div>
           </div>
-          <%= yield %>
         </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
 </html>

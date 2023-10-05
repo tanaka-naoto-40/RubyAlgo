@@ -6,9 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Categoryを作成しました'
     else
-      flash.now[:danger] = 'fail'
       render :new
     end
   end
