@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       flash.now[:danger] = 'fail'
       render :new
     end
-  end 
+  end
 
   def destroy
     logout

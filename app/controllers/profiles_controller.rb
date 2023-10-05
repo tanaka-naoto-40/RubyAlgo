@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     @bookmark_lessons = current_user.bookmark_lessons
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @user.update(user_params)
