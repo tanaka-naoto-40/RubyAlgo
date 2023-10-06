@@ -7,6 +7,7 @@
         </h2>
         <p class="text-center fs-4 mb-0 fw-bold">会員登録</p>
         <%= form_with model: @user, local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
           <div class="mb-3">
             <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: 'ユーザー名' %>
           </div>
