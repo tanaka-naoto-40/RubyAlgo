@@ -6,9 +6,10 @@
           <div class="lesson">
             <h5 class="mb-2"><%= lesson.title %></h5>
             <p class="mb-0"><%= lesson.content %></p>
+            <%= form.hidden_field "answers[#{lesson.id}]", value: "default" %>
             <% lesson.answers.each do |answer| %>
               <%= form.radio_button "answers[#{lesson.id}]", answer.id %>
-              <%= form.label "answers[#{lesson.id}]", answer.content, value: answer.id %><br>
+              <%= form.label "answers[#{lesson.id}]", answer.content, value: answer.id, class: "text-secondary" %><br>
             <% end %>
           </div>
         </div>
@@ -16,4 +17,3 @@
     </div>
   </div>
 </div>
-
