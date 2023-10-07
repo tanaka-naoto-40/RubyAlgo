@@ -4,22 +4,20 @@
       <div class="d-flex">
         <div class="custom-block-topics-listing-info d-flex">
           <div>
-
             <% if result[:correct] %>
               <h4 class="text-primary">正解！</h4>
             <% else %>
               <h4 class="text-danger">不正解</h4>
             <% end %>
-              <div class="lesson">
-                <h5 class="mb-2"><%= result[:lesson_title] %></h5>
-                <p class="mb-0"><%= result[:lesson_content] %></p>
-                <% result[:lesson_answers].each do |answer| %>
-                  <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s %>
-                  <% %>
-                  <label><%= answer.content %></label><br>
-                <% end %>
-              </div>
-
+            <div class="lesson">
+              <h5 class="mb-2"><%= result[:lesson_title] %></h5>
+              <p class="mb-0"><%= result[:lesson_content] %></p>
+              <% result[:lesson_answers].each do |answer| %>
+                <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s %>
+                <% %>
+                <label class="text-secondary"><%= answer.content %></label><br>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
