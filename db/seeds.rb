@@ -106,3 +106,11 @@
 #   content: '選択肢4',
 #   answer: false
 # )
+User.create!(
+  id: 10,
+  username: 'sample',
+  email: 'adminsample@example.com',
+  role: 'admin',
+  password: '1234',
+  password_confirmation: '1234'
+)
