@@ -6,29 +6,12 @@ class LessonsController < ApplicationController
     @lessons = @course.lessons.where(published: true)
   end
 
-  # def result
-  #   @selected_answers = params[:answers]
-  #   @results = {}
-  #   @selected_answers&.each do |lesson_id, answer_id|
-  #     lesson = Lesson.find(lesson_id) # Find the lesson
-  #     answer = Answer.find(answer_id)
-  #     @results[lesson_id] = {
-  #       lesson_title:    lesson.title,
-  #       lesson_content:  lesson.content,
-  #       lesson_answers:  lesson.answers,
-  #       answer_id:       answer.id,
-  #       answer_content:  answer.content,
-  #       correct:         answer.answer
-  #     } # Keep the lesson's details and the correctness of the answer
-  #   end
-  # end
-
   def result
     @category = Category.find(params[:category_id])
     @selected_answers = params[:answers]
     @results = {}
     @selected_answers&.each do |lesson_id, answer_id|
-      lesson = Lesson.find(lesson_id) # Find the lesson
+      lesson = Lesson.find(lesson_id)
   
       if answer_id == "default"
         # 未選択の場合の処理
