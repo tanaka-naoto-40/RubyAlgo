@@ -1,15 +1,33 @@
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-  <%= link_to root_path, class: 'navbar-brand d-flex align-items-center px-4 px-lg-5' do %>
-    <h2 class="m-0 text-primary">
-      <i class="bi bi-pc-display-horizontal"></i>RubyAru
-    </h2>
-  <% end %>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-        <%= link_to 'ログイン', login_path, class: 'btn btn-info py-3 px-lg-4 d-none d-lg-block' %>
-        <%= link_to '新規登録', new_user_path, class: 'btn btn-primary py-3 px-lg-4 d-none d-lg-block' %>
+<div class="navbar navbar-expand-lg hero-section">
+  <div class="container">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+        <i class="bi-back"></i>
+        <span>RubyAlgo</span>
+    <% end %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-lg-5 me-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="#section_5">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link bi bi-chevron-down" id="navbarLightDropdownMenuLink">難易度一覧</div>
+          <ul class="dropdown-menu dropdown-menu-light">
+            <% Category.all.each do |category| %>
+              <li><%= link_to category.title, category_path(category), class: 'dropdown-item' %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-none d-lg-block nav-item dropdown">
+        <a class="navbar-icon bi-person smoothscroll" id="navbarLightDropdownMenuLink"></a>
+        <ul class="dropdown-menu dropdown-menu-light">
+          <%= link_to 'ログイン', login_path, class: 'dropdown-item' %>
+          <%= link_to '新規登録', new_user_path, class: 'dropdown-item' %>
+        </ul>
+      </div>
     </div>
   </div>
-</nav>
-<!-- Navbar End -->
+</div>
