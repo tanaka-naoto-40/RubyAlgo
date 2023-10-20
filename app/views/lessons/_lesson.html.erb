@@ -8,8 +8,10 @@
             <p class="mb-0"><%= lesson.content %></p>
             <%= form.hidden_field "answers[#{lesson.id}]", value: "default" %>
             <% lesson.answers.each do |answer| %>
-              <%= form.radio_button "answers[#{lesson.id}]", answer.id %>
-              <%= form.label "answers[#{lesson.id}]", answer.content, value: answer.id, class: "text-secondary" %><br>
+              <div class="form-check">
+                <%= form.radio_button "answers[#{lesson.id}]", answer.id, class: "form-check-input" %>
+                <%= form.label "answers[#{lesson.id}]", markdown(answer.content), value: answer.id, class: "form-check-label text-secondary" %>
+              </div>
             <% end %>
           </div>
         </div>
