@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <%= f.label :解説 %>
-          <div data-controller="codemirror" data-codemirror-doc-value="<%= f.object.content %>">
+          <div data-controller="codemirror" data-codemirror-doc-value="<%= f.object.explanation %>">
             <div data-codemirror-target="editor">
               <%= f.hidden_field :explanation, class: 'form-control', data: {codemirror_target: "input"} %>
             </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
           <%= f.label :解答コード %>
-          <div data-controller="codemirror" data-codemirror-doc-value="<%= f.object.content %>">
+          <div data-controller="codemirror" data-codemirror-doc-value="<%= f.object.correct_code %>">
             <div data-codemirror-target="editor">
               <%= f.hidden_field :correct_code, class: 'form-control', data: {codemirror_target: "input"} %>
             </div>
