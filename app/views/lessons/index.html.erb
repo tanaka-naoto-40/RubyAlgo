@@ -1,4 +1,16 @@
 <% if @category.id < 2 %>
+  <div class="col-lg-6 col-12 mt-3 mx-auto">
+    <div class="custom-block-topics-listing bg-white shadow-lg mb-5">
+      <div class="d-flex">
+        <div class="custom-block-topics-listing-info d-flex">
+          <div>
+              <h4 class="mb-2">4択クイズ</h4>
+              <p class="mb-0">問題文を読み選択肢の中から正しいと思うものを1つ選んでください</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <%= form_with(url: result_category_lessons_path, method: :post, data: { turbo: false }) do |form| %>
     <%= render partial: 'lesson', collection: @lessons, locals: { form: form } %>
     <div class="container text-center">

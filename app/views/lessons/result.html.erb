@@ -13,9 +13,14 @@
               <h5 class="mb-2"><%= result[:lesson_title] %></h5>
               <p class="mb-0"><%= result[:lesson_content] %></p>
               <% result[:lesson_answers].each do |answer| %>
-                <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s %>
-                <% %>
-                <label class="text-secondary"><%= answer.content %></label><br>
+                <div class="form-check">
+                  <%= radio_button_tag "answers[#{lesson_id}]", answer.id, @selected_answers[lesson_id.to_s] == answer.id.to_s, class: "form-check-input" %>
+                  <label class="form-check-label text-secondary w-100 nav-tabs"><%= markdown(answer.content) %></label><br>
+                    <div class="section-bg">
+                      <span class="badge bg-education rounded-pill section-bg">解説</span>
+                      <label class="form-check-label text-secondary w-100 nav-tabs"><%= markdown(answer.explanation) %></label><br>
+                    </div>
+                </div>
               <% end %>
             </div>
           </div>
