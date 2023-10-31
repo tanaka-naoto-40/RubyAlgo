@@ -5,7 +5,7 @@
         <div>
           <div class="lesson">
             <h5 class="mb-2"><%= lesson.title %></h5>
-            <p class="mb-0"><%= lesson.content %></p>
+            <p class="mb-0"><%= markdown(lesson.content) %></p>
             <%= form.hidden_field "answers[#{lesson.id}]", value: "default" %>
             <% lesson.answers.each do |answer| %>
               <div class="form-check">
