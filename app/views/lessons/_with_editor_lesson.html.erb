@@ -8,7 +8,7 @@
               <div class="d-flex">
                 <div>
                   <h5 class="mb-2"><%= lesson.title %></h5>
-                  <p class="mb-0"><%= lesson.content %></p>
+                  <p class="mb-0"><%= markdown(lesson.content) %></p>
                 </div>
                 <% if current_user %>
                   <%= render 'bookmark_button', lesson: lesson %>
@@ -22,7 +22,7 @@
         <input id="block-01" type="checkbox" class="toggle">
         <label class="Label" for="block-01">ヒント</label>
         <div class="content">
-          <p class="mb-0"><%= lesson.hints %></p>
+          <p class="mb-0"><%= markdown(lesson.hints) %></p>
         </div>
       </div>
     </div>
