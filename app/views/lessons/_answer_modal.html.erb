@@ -6,9 +6,13 @@
     </div>
     <div class="modal-body">
       <%= text_area_tag 'correct_code', lesson.answers.first.correct_code, class: 'txt-editor cm-answer', readonly: true %>
-      <div class="d-none">
-        <%= text_area_tag 'starter_code', lesson.answers.first.content, id: "answer", class: 'txt-editor cm-output', readonly: true %>
+      <div class="section-bg">
+        <span class="badge bg-education rounded-pill section-bg">解説</span>
+        <label class="form-check-label text-secondary w-100 nav-tabs"><%= markdown(lesson.answers.first.explanation) %></label><br>
       </div>
+    </div>
+    <div class="d-none">
+      <%= text_area_tag 'starter_code', lesson.answers.first.content, id: "answer", class: 'txt-editor cm-output', readonly: true %>
     </div>
   </div>
 </div>

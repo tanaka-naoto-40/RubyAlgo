@@ -32,13 +32,10 @@
       <div class="d-flex align-items-center my-1">
         <h6 class="code-title flex-grow-1">Output</h6>
         <%= button_to "準備中", "#", method: :post, disabled: true, class: "btn btn-default bg-education", id: "run" %>
-
         <button id="modalOpen" class="btn btn-default bg-music">解答例</button>
         <%= render "answer_modal", lesson: lesson,title: '解答例' %>
-
         <button id="judgeModalOpen" class="btn btn-default bg-finance">答え合わせ</button>
         <%= render "judge_modal", lesson: lesson, category: @category,title: '答え合わせ' %>
-
       </div>
     <%= text_area_tag 'output', nil, class: 'txt-editor cm-output', id: "output", placeholder: "出力", readonly: true %>
     </div>
