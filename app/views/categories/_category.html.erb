@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
   <div class="course-item bg-light">
     <div class="position-relative overflow-hidden">
-      <%= image_tag 'course-1.jpg', class: 'img-fluid' %>
+      <%= image_tag "course-#{category.id}.jpg", class: 'img-fluid' %>
     </div>
     <div class="text-center p-4 pb-0">
       <h3><%= link_to category.title, category_path(category), class: 'mb-0' %></h3>
@@ -13,4 +13,4 @@
       <h5 class="mb-4"><%= category.content %></h5>
     </div>
   </div>
-</div>
+</div> 
