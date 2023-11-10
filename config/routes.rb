@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get 'privacy', to: 'tops#privacy'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
+  delete 'logout', to: 'users#destroy'
 
-  resources :users, only: %i[new create]
+  post 'callback' => 'line_bot#callback'
+
+  resource :user, only: %i[new create destroy]
   resource :profile, only: %i[show edit update]
   resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do

@@ -1,4 +1,6 @@
-<div class="d-flex align-items-center justify-content-center w-100">
+<%
+=begin%>
+ <div class="d-flex align-items-center justify-content-center w-100">
   <div class="card mb-0">
     <div class="card-body">
       <div class="text-nowrap logo-img text-center d-block py-3 w-100">
@@ -29,4 +31,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
+<%
+=end%>
+
+<p>Loading・・・</p>
+<p>※時間がかかることがございます。</p>
+<%= javascript_include_tag "new", "data-turbo-track": "reload", defer: true %>
