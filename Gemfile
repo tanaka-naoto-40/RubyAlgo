@@ -55,6 +55,9 @@ gem 'rouge'
 # Use Sass to process CSS
 gem "sassc-rails"
 
+# line messa1ge api
+gem 'line-bot-api'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
