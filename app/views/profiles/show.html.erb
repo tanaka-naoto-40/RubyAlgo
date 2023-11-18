@@ -7,7 +7,7 @@
             <div class="d-flex">
               <div class="profile">
                 <h5 class="mb-2">プロフィール</h5>
-                <p class="mb-0"><%= current_user.username %></p>
+                <p class="mb-0"><%= current_user.name %></p>
                 <p class="mb-0"><%= current_user.email %></p>
               </div>
             </div>
@@ -31,6 +31,18 @@
                       お気に入り問題はありません
                     <% end %>
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-0">
+          <div class="card-body">
+            <div class="d-flex flex-column h-100">
+              <div class=" d-flex">
+                <div class="favorite">
+                  <h5 class="mb-2">LINE通知</h5>
+<%= render 'profiles/alarm', user: @user %>
                 </div>
               </div>
             </div>

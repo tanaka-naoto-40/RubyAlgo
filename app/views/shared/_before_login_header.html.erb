@@ -31,17 +31,8 @@
       <div class="d-none d-lg-block nav-item dropdown">
         <a class="navbar-icon bi-person smoothscroll"></a>
         <ul class="dropdown-menu dropdown-menu-light">
-          <%= link_to 'ログイン', new_user_path, class: 'dropdown-item bi bi-line' , data: { turbo: false } %>
-          <%
-=begin%>
- <%= link_to 'ログイン', login_path, class: 'dropdown-item' %> 
-<%
-=end%>
-          <%
-=begin%>
- <%= link_to '新規登録', new_user_path, class: 'dropdown-item' %> 
-<%
-=end%>
+          <%= link_to 'ログイン', new_user_session_path, class: 'dropdown-item' , data: { turbo: false } %>
+          <%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' , data: { turbo: false } %>
         </ul>
       </div>
     </div>

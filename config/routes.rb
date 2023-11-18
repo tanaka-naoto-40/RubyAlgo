@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "tops#index"
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: "omniauth_callbacks",
+    registrations: "registrations",
+    sessions: 'users/sessions'
+  }
+  devise_scope :user do
+    get '/sign_in', to: 'users/sessions#new'
+  end
+
   get 'terms', to: 'tops#terms'
   get 'privacy', to: 'tops#privacy'
   get 'login', to: 'user_sessions#new'
@@ -12,7 +19,13 @@ Rails.application.routes.draw do
   post 'callback' => 'line_bot#callback'
 
   resource :user, only: %i[new create destroy]
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[show edit update] do
+    collection do
+      get :alarm
+      post :set_alarm
+    end
+  end
+  
   resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do
     resources :lessons, only: %i[index show] do

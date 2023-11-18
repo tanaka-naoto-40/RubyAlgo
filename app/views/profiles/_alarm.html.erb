@@ -1,0 +1,8 @@
+<%= form_with model: @user, url: set_alarm_profile_path, method: :post, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :alarm_time, 'アラーム時刻', class: 'control-label' %>
+      <%= f.time_select :alarm_time, { minute_step: 60, discard_minute: true, default: @user.alarm_time || Time.now, ignore_date: true }, class: "border rounded px-3 py-2" %>
+      <span class="ml-2">: 00</span>
+    </div>
+  <%= f.submit 'アラームを設定', class: 'btn btn-primary' %>
+<% end %>

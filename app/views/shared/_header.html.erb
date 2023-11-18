@@ -28,8 +28,8 @@
       <div class="d-none d-lg-block nav-item dropdown">
         <a class="navbar-icon bi-person smoothscroll" id="navbarLightDropdownMenuLink"></a>
         <ul class="dropdown-menu dropdown-menu-light">
-          <%= link_to 'ログアウト', logout_path, class: 'dropdown-item' ,data: {turbo_method: :delete} %>
           <%= link_to 'マイページ', profile_path, class: 'dropdown-item' %>
+          <%= link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item' ,data: {turbo_method: :delete} %>
         </ul>
       </div>
     </div>
