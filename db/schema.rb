@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_05_082305) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_18_145617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alarms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "alarm_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_alarms_on_lesson_id"
+    t.index ["user_id"], name: "index_alarms_on_user_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.bigint "lesson_id", null: false
@@ -64,17 +74,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_05_082305) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "email", null: false
+    t.string "email", default: "", null: false
     t.integer "role", default: 0, null: false
-    t.string "crypted_password"
-    t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "line_user_id"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.time "alarm_time"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "alarms", "lessons"
+  add_foreign_key "alarms", "users"
   add_foreign_key "answers", "lessons"
   add_foreign_key "bookmarks", "lessons"
   add_foreign_key "bookmarks", "users"

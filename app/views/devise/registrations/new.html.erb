@@ -1,14 +1,13 @@
-<%
-=begin%>
- <div class="d-flex align-items-center justify-content-center w-100">
+<div class="d-flex align-items-center justify-content-center w-100">
   <div class="card mb-0">
     <div class="card-body">
       <div class="text-nowrap logo-img text-center d-block py-3 w-100">
         <h2 class="m-0 text-primary">
-          <i class="bi bi-pc-display-horizontal"></i>RubyAru
+          <i class="bi-back"></i>
+          <span>RubyAlgo</span>
         </h2>
         <p class="text-center fs-4 mb-0 fw-bold">会員登録</p>
-        <%= form_with model: @user, local: true do |f| %>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="mb-3">
             <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: 'ユーザー名' %>
@@ -17,7 +16,7 @@
             <%= f.text_field :email, autofocus: true, class: "form-control", placeholder: 'メールアドレス' %>
           </div>
           <div class="mb-4">
-            <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: 'パスワード' %>
+            <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: 'パスワード(6文字以上)' %>
           </div>
           <div class="mb-4">
             <%= f.password_field :password_confirmation, autofocus: true, class: "form-control", placeholder: '確認用パスワード' %>
@@ -25,16 +24,19 @@
           <%= f.submit '新規登録', class: "btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" %>
           <div class="d-flex align-items-center justify-content-center">
             <p class="fs-8 mb-0 fw-bold">すでにアカウントをお持ちですか？</p>
-            <%= link_to 'ログイン', login_path, class: "text-primary fw-bold ms-2" %>
+            <%= link_to 'ログイン', new_user_session_path, class: "text-primary fw-bold ms-2" %>
           </div>
         <% end %>
+        <div class="flex items-center justify-center gap-2">
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "btn btn-success" do %>
+              <%= image_tag 'line_64.png', alt: 'LINE Icon', width: '40', height: '40', class: 'inline' %> LINEでログイン
+            <% end %>
+            <br />
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div> 
-<%
-=end%>
 
-<p>Loading・・・</p>
-<p>※時間がかかることがございます。</p>
-<%= javascript_include_tag "new", "data-turbo-track": "reload", defer: true %>

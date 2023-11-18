@@ -22,21 +22,23 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
-    <div id="flash">
-      <%= render 'shared/flash' %>
+    <div class="footerFixed">
+      <% if user_signed_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+      <div id="flash">
+        <%= render 'shared/flash' %>
+      </div>
+        <%= yield %>
+      <%= render 'shared/footer' %> 
+      <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/ruby/ruby.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.3.0-2022-09-29-a/dist/browser.umd.js"></script>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+      <div id="flashes" class="position-fixed top-0 end-0" style="margin: 0.75rem"></div>
     </div>
-      <%= yield %>
-    <%= render 'shared/footer' %> 
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/ruby/ruby.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.3.0-2022-09-29-a/dist/browser.umd.js"></script>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
-    <div id="flashes" class="position-fixed top-0 end-0" style="margin: 0.75rem"></div>
   </body>
 </html>

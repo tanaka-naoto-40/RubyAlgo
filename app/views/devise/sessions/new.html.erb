@@ -1,0 +1,36 @@
+<div class="d-flex align-items-center justify-content-center w-100">
+  <div class="card mb-0">
+    <div class="card-body">
+      <div class="text-nowrap logo-img text-center d-block py-3 w-100">
+        <h2 class="m-0 text-primary">
+          <i class="bi-back"></i>
+          <span>RubyAlgo</span>
+        </h2>
+        <p class="text-center fs-4 mb-0 fw-bold">ログイン</p>
+        <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="mb-3">
+            <%= f.text_field :email, autofocus: true, class: "form-control", placeholder: 'メールアドレス' %>
+          </div>
+          <div class="mb-4">
+            <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: 'パスワード' %>
+          </div>
+          <%= f.submit 'ログイン', class: "btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" %>
+          <div class="d-flex align-items-center justify-content-center">
+            <p class="fs-8 mb-0 fw-bold">アカウントをお持ちでないですか？</p>
+            <%= link_to '新規登録', new_user_registration_path, class: "text-primary fw-bold ms-2" %>
+          </div>
+        <% end %>
+        <div class="flex items-center justify-center gap-2">
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "btn btn-success" do %>
+              <%= image_tag 'line_64.png', alt: 'LINE Icon', width: '40', height: '40', class: 'inline' %> LINEでログイン
+            <% end %>
+            <br />
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
