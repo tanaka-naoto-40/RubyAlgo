@@ -6,9 +6,14 @@ namespace :line_alarm do
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     end
 
-    current_hour_jst = Time.current.hour
+    # Heroku上での現在のUTC時間を取得
+    current_hour_utc = Time.current.utc.hour
 
-    users_to_alarm = User.where("EXTRACT(HOUR FROM alarm_time AT TIME ZONE 'JST') = ?", current_hour_jst)
+    # UTC時間からJST（日本時間, UTC+9時間）に変換
+    current_hour_jst = (current_hour_utc + 9) % 24
+
+    # JST時間に基づいて通知すべきユーザーを選択
+    users_to_alarm = User.where("EXTRACT(HOUR FROM alarm_time AT TIME ZONE 'UTC') = ?", current_hour_jst)
     users_to_alarm.each do |user|
       next unless user.uid # user.uidがnilや空の場合は次のループへ
 
