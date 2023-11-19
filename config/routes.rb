@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     collection do
       get :alarm
       post :set_alarm
+      delete :remove_alarm
     end
   end
   

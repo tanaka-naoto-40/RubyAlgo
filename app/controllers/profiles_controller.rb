@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :require_login
-  before_action :set_user, only: %i[show edit update alarm set_alarm]
+  before_action :set_user, only: %i[show edit update alarm set_alarm remove_alarm]
 
   def show
     @bookmark_lessons = current_user.bookmark_lessons
@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     time_params["alarm_time(5i)"] = "00"
 
     if @user.update(time_params)
-      redirect_to profile_path, notice: 'アラームを設定しました'
+      redirect_to profile_path, notice: '通知を設定しました'
     else
       flash.now[:danger] = t('defaults.message.alarm_not_registed')
       redirect_to profile_path
@@ -24,10 +24,15 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to profile_path, notice: 'alarmしました'
+      redirect_to profile_path, notice: 'プロフィールを更新しました'
     else
       render :edit
     end
+  end
+
+  def remove_alarm
+    @user.update(alarm_time: nil)
+    redirect_to profile_path, notice: '通知を解除しました'
   end
 
   private

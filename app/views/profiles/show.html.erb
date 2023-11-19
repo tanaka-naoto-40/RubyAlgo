@@ -8,10 +8,12 @@
               <div class="profile">
                 <h5 class="mb-2">プロフィール</h5>
                 <p class="mb-0"><%= current_user.name %></p>
+              <% unless current_user.provider == "line" %>
                 <p class="mb-0"><%= current_user.email %></p>
+                <%= link_to 'アカウント設定', edit_profile_path, class: "btn custom-btn mt-2 mt-lg-3" %>
+              <% end %>
               </div>
             </div>
-            <%= link_to 'アカウント設定', edit_profile_path, class: "btn custom-btn mt-2 mt-lg-3" %>
           </div>
         </div>
       </div>
@@ -36,18 +38,7 @@
             </div>
           </div>
         </div>
-        <div class="card mb-0">
-          <div class="card-body">
-            <div class="d-flex flex-column h-100">
-              <div class=" d-flex">
-                <div class="favorite">
-                  <h5 class="mb-2">LINE通知</h5>
-<%= render 'profiles/alarm', user: @user %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%= render 'profiles/alarm', user: @user %>
       </div>
     </div>
   </div>
