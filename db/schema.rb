@@ -14,16 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_145617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "alarms", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "lesson_id", null: false
-    t.datetime "alarm_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lesson_id"], name: "index_alarms_on_lesson_id"
-    t.index ["user_id"], name: "index_alarms_on_user_id"
-  end
-
   create_table "answers", force: :cascade do |t|
     t.bigint "lesson_id", null: false
     t.text "content", null: false
@@ -90,8 +80,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_145617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "alarms", "lessons"
-  add_foreign_key "alarms", "users"
   add_foreign_key "answers", "lessons"
   add_foreign_key "bookmarks", "lessons"
   add_foreign_key "bookmarks", "users"

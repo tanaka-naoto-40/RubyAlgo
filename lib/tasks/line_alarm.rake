@@ -6,8 +6,6 @@ namespace :line_alarm do
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     end
 
-    url = "https://rubyalgo.com"
-
     # UTC時間に9時間を加算して日本時間を取得
     current_hour_jst = (Time.current.utc.hour + 9) % 24
 
@@ -20,7 +18,7 @@ namespace :line_alarm do
 
       message = {
         type: 'text',
-        text: "学習の時間です。\n今日も一緒に頑張りましょう！\n(通知を止めたい場合は、「通知設定」より設定解除してください)\n\n#{url}"
+        text: "学習の時間です。\n今日も一緒に頑張りましょう!\n(通知を止めたい場合は、「通知設定」より設定解除してください)\n\nhttps://rubyalgo.com"
       }
       response = client.push_message(user.uid, message)
       p response
