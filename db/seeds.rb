@@ -109,7 +109,7 @@
 User.create!(
   id: 30,
   name: 'sample',
-  email: 'adminsample@example.com',
+  email: 'admins@example.com',
   role: 'admin',
   password: '111111',
   password_confirmation: '111111'
