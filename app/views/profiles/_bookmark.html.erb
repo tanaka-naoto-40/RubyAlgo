@@ -1,0 +1,20 @@
+<div class="card mb-0 border">
+  <div class="card-body">
+    <div class="d-flex flex-column h-100">
+      <div class=" d-flex">
+        <div class="favorite">
+          <h5 class="mb-2">お気に入り問題</h5>
+          <p class="mb-0">
+            <% if @bookmark_lessons.present? %>
+              <% @bookmark_lessons&.each do |lesson| %>
+                <%= link_to lesson.title, category_lessons_path(lesson.course.category_id, course_id: lesson.course.id) %>
+              <% end %>
+            <% else %>
+              お気に入り問題はありません
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

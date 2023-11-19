@@ -8,8 +8,6 @@ class ProfilesController < ApplicationController
 
   def edit ;end
 
-  def alarm ;end
-
   def set_alarm
     time_params = alarm_time_params
     time_params["alarm_time(5i)"] = "00"
