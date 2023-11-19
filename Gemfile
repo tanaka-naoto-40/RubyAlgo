@@ -54,6 +54,7 @@ gem 'rails-i18n'
 gem 'pry-byebug'
 gem 'redcarpet'
 gem 'rouge'
+gem "simple_calendar", "~> 2.4"
 
 # Use Sass to process CSS
 gem "sassc-rails"

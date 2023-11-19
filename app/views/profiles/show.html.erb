@@ -16,6 +16,19 @@
             </div>
           </div>
         </div>
+<div class="card mb-0 border">
+  <div class="card-body">
+    <div class="d-flex flex-column h-100">
+      <div class=" d-flex">
+        <div class="calendar">
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </div>
       <div class="col-lg-6 col-12">
         <%= render 'profiles/bookmark' %>
