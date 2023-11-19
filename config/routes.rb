@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   resource :user, only: %i[new create destroy]
   resource :profile, only: %i[show edit update] do
     collection do
-      get :alarm
       post :set_alarm
       delete :remove_alarm
     end
