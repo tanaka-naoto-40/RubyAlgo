@@ -6,13 +6,9 @@ namespace :line_alarm do
       config.channel_token = ENV['LINE_CHANNEL_TOKEN']
     end
 
-    # UTC時間に9時間を加算して日本時間を取得
-    current_hour_jst = (Time.current.utc.hour + 9) % 24
+    current_hour_jst = Time.current.hour
 
-    # 日本時間をUTCに変換
-    current_hour_utc = (current_hour_jst - 9) % 24
-
-    users_to_alarm = User.where("EXTRACT(HOUR FROM alarm_time AT TIME ZONE 'UTC') = ?", current_hour_utc)
+    users_to_alarm = User.where("EXTRACT(HOUR FROM alarm_time AT TIME ZONE 'JST') = ?", current_hour_jst)
     users_to_alarm.each do |user|
       next unless user.uid # user.uidがnilや空の場合は次のループへ
 

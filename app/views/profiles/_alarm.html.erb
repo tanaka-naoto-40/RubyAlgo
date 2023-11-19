@@ -2,7 +2,7 @@
           <div class="card-body">
             <div class="d-flex flex-column h-100">
               <div class=" d-flex">
-                <div class="favorite">
+                <div class="alarm">
                   <%= form_with model: @user, url: set_alarm_profile_path, method: :post, local: true do |f| %>
                     <h5 class="mb-2">LINE通知</h5>
                     <h8 class="mb-4 text-danger">※LINE通知を受け取るには、LINEログインと公式アカウントの友達追加をお願いします。</h8>
