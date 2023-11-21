@@ -11,16 +11,55 @@ function modalOpen() {
 
 judgeOpen.addEventListener('click', judgeModalOpen);
 async function judgeModalOpen() {
-  await main();  // main関数を実行
-  await run();  // run関数を実行
+  await main();
+  await run();
   const expected = document.getElementById(`output`).value.trim();
   const result = document.getElementById('answer').value.trim();
+  const lessonId = document.getElementById('lesson-id').value.trim();
+
   if (expected == result) {
     correctModal.style.display = 'block';
+    // AJAXリクエストを送信してProgressを記録
+    recordProgress(true, lessonId);
   } else {
     incorrectModal.style.display = 'block';
+    recordProgress(false, lessonId);
   }
 }
+
+function recordProgress(isCorrect, lessonId) {
+  // ここでサーバーサイドのエンドポイントURLを指定
+  const url = '/progresses';
+  const data = {
+    progress: {
+      date: new Date().toISOString().slice(0, 10), // 今日の日付
+      status: isCorrect ? 'correct' : 'incorrect',  // クイズの結果
+      lesson_id: lessonId
+    }
+  };
+
+  fetch(url, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': getCsrfToken() // CSRFトークンの取得
+    },
+    body: JSON.stringify(data) 
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+function getCsrfToken() {
+  // CSRFトークンを取得するための関数
+  return document.querySelector('[name="csrf-token"]').content;
+}
+
 
 // モーダルを閉じるボタンのイベントリスナーを設定
 const closeBtns = document.querySelectorAll(".modalClose");

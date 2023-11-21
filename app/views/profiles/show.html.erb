@@ -21,8 +21,16 @@
     <div class="d-flex flex-column h-100">
       <div class=" d-flex">
         <div class="calendar">
+          <h5 class="mb-2">学習カレンダー</h5>
+
 <%= month_calendar do |date| %>
-  <%= date.day %>
+  <% progress = Progress.where(date: date, user: current_user) %>
+  <div class="day">
+    <% if progress.any?(&:correct?) %>
+      <span class="checkmark">✔</span>
+    <% end %>
+    <%= date.day %>
+  </div>
 <% end %>
         </div>
       </div>
@@ -32,6 +40,28 @@
       </div>
       <div class="col-lg-6 col-12">
         <%= render 'profiles/bookmark' %>
+
+<div class="card mb-0 border">
+  <div class="card-body">
+    <div class="d-flex flex-column h-100">
+      <div class=" d-flex">
+        <div class="favorite">
+          <h5 class="mb-2">復習問題</h5>
+          <p class="mb-0">
+            <% if @incorrect_lessons.present? %>
+              <% @incorrect_lessons&.each do |lesson| %>
+                <%= link_to lesson.title, category_lessons_path(lesson.course.category_id, course_id: lesson.course.id) %>
+              <% end %>
+            <% else %>
+              復習問題はありません
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
         <%= render 'profiles/alarm', user: @user %>
       </div>
     </div>

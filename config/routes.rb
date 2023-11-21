@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :progresses, only: [:create]
   resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do
     resources :lessons, only: %i[index show] do

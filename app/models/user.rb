@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_lessons, through: :bookmarks, source: :lesson
+  has_many :progresses
+  has_many :progress_lessons, through: :progresses, source: :lesson
 
   enum role: { general: 0, admin: 1 }
 
