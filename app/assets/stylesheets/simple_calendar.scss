@@ -50,6 +50,8 @@
   }
 
   .day {
+    position: relative;
+    text-align: center;
   }
 
   .wday-0 {}
@@ -80,4 +82,14 @@
 
   .has-events {}
 }
-
+.green {
+  background: green;
+}
+.checkmark {
+  position: absolute;
+  color: green;
+  font-size: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

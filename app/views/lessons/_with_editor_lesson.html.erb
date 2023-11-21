@@ -9,6 +9,7 @@
                 <div>
                   <h5 class="mb-2"><%= lesson.title %></h5>
                   <p class="mb-0"><%= markdown(lesson.content) %></p>
+                  <p class="d-none"><%= text_area_tag 'lesson_id', lesson.id, id: "lesson-id", class: 'txt-editor cm-output', readonly: true %></p>
                 </div>
                 <% if current_user %>
                   <%= render 'bookmark_button', lesson: lesson %>
