@@ -12,10 +12,7 @@ Rails.application.routes.draw do
 
   get 'terms', to: 'tops#terms'
   get 'privacy', to: 'tops#privacy'
-  get 'login', to: 'user_sessions#new'
-  post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'users#destroy'
-
+  get 'ranking', to: 'tops#ranking'
   post 'callback' => 'line_bot#callback'
 
   resource :user, only: %i[new create destroy]

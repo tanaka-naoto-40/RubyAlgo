@@ -1,0 +1,13 @@
+<% @user_ranking.each_with_index do |user, index| %>
+  <tr>
+    <td>
+      <%= index + 1 %>
+    </td>
+    <td>
+      <%= user.name %>
+    </td>
+    <td>
+      <%= user.correct_progress_count %>
+    </td>
+  </tr>
+<% end %>

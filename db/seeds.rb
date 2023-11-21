@@ -107,10 +107,10 @@
 #   answer: false
 # )
 User.create!(
-  id: 30,
+  id: 1,
   name: 'sample',
-  email: 'admins@example.com',
-  role: 'admin',
+  email: 'sample@example.com',
+  role: 'general',
   password: '111111',
   password_confirmation: '111111'
 )
