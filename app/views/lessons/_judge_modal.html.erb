@@ -8,6 +8,9 @@
         <p>おめでとうございます!!
            次の問題にも挑戦してみましょう！</p>
         <<%= link_to "別の問題に挑戦する", category_path(@category) %>>
+        <%= link_to "https://twitter.com/share?url=https://rubyalgo.com&text=【RubyAlgo】%0a%0a#{lesson.title}を解いた", target: '_blank' do %>
+          <i class="fab fa-twitter" style='color: #3399FF;'></i>シェア
+        <% end %>
       </div>
     </div>
   </div>
