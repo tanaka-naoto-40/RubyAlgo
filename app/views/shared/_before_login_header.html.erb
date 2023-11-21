@@ -6,19 +6,9 @@
     <% end %>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-lg-5 me-lg-auto">
-        <%
-=begin%>
- <li class="nav-item">
-          <a class="nav-link click-scroll" href="#section_4">FAQs</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link click-scroll" href="#section_5">Contact</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link click-scroll" href="#section_5">Contact</a>
+          <%= link_to 'ランキング', ranking_path, class: 'nav-link click-scroll' %>
         </li>  
-<%
-=end%>
         <li class="nav-item dropdown">
           <div class="nav-link bi bi-chevron-down" id="navbarLightDropdownMenuLink">難易度一覧</div>
           <ul class="dropdown-menu dropdown-menu-light">
