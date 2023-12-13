@@ -41,4 +41,13 @@ class User < ApplicationRecord
     self.raw_info = raw_info.to_json
     self.save!
   end
+
+  # ランキングの計算
+  def self.ranking
+    joins(:progresses)
+      .where(progresses: { status: Progress.statuses[:correct] })
+      .group(:id)
+      .order(Arel.sql('COUNT(progresses.id) DESC'))
+      .select('users.*, COUNT(progresses.id) AS correct_progress_count')
+  end
 end
