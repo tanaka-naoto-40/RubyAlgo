@@ -4,12 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     @bookmark_lessons = current_user.bookmark_lessons
-    # @incorrect_lessons = Lesson.incorrect_lessons_for_user(current_user.id)
-    @incorrect_lessons = Lesson.joins(:progresses)
-    .where(progresses: { user_id: current_user.id, status: Progress.statuses[:incorrect] })
-    .where.not(
-      id: Progress.where(user_id: current_user.id, status: Progress.statuses[:correct]).select(:lesson_id)
-    )
+    @incorrect_lessons = Lesson.incorrect_lessons_for_user(current_user.id)
   end
 
   def edit ;end
