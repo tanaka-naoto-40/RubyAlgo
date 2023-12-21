@@ -6,9 +6,13 @@
     <% end %>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-lg-5 me-lg-auto">
-        <li class="nav-item">
+        <%
+=begin%>
+ <li class="nav-item">
           <%= link_to 'ランキング', ranking_path, class: 'nav-link click-scroll' %>
-        </li>  
+        </li>   
+<%
+=end%>
         <li class="nav-item dropdown">
           <div class="nav-link bi bi-chevron-down" id="navbarLightDropdownMenuLink">難易度一覧</div>
           <ul class="dropdown-menu dropdown-menu-light">
