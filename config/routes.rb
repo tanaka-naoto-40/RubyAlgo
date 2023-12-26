@@ -26,13 +26,9 @@ Rails.application.routes.draw do
   resources :progresses, only: [:create]
   resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do
-    resources :lessons, only: %i[index show] do
-      collection do
-        post :result
-        get :result
-      end
-    end
+    resources :lessons, only: %i[index show]
   end
+  resource :results, only: %i[show create]
 
   namespace :admin do
     root to: 'dashboards#index'
