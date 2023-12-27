@@ -9,17 +9,17 @@ class ProfilesController < ApplicationController
 
   def edit ;end
 
-  def set_alarm
-    time_params = alarm_time_params
-    time_params["alarm_time(5i)"] = "00"
+  # def set_alarm
+  #   time_params = alarm_time_params
+  #   time_params["alarm_time(5i)"] = "00"
 
-    if @user.update(time_params)
-      redirect_to profile_path, notice: '通知を設定しました'
-    else
-      flash.now[:danger] = t('defaults.message.alarm_not_registed')
-      redirect_to profile_path
-    end
-  end
+  #   if @user.update(time_params)
+  #     redirect_to profile_path, notice: '通知を設定しました'
+  #   else
+  #     flash.now[:danger] = t('defaults.message.alarm_not_registed')
+  #     redirect_to profile_path
+  #   end
+  # end
 
   def update
     if @user.update(user_params)
@@ -29,10 +29,10 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def remove_alarm
-    @user.update(alarm_time: nil)
-    redirect_to profile_path, notice: '通知を解除しました'
-  end
+  # def remove_alarm
+  #   @user.update(alarm_time: nil)
+  #   redirect_to profile_path, notice: '通知を解除しました'
+  # end
 
   private
 
