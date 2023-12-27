@@ -16,13 +16,18 @@ Rails.application.routes.draw do
   post 'callback' => 'line_bot#callback'
 
   resource :user, only: %i[new create destroy]
-  resource :profile, only: %i[show edit update] do
-    collection do
+  resource :profile, only: %i[show edit update]
+  resource :alarms, only: [] do
+    member do
       post :set_alarm
       delete :remove_alarm
     end
   end
-  
+    # collection do
+    #   post :set_alarm
+    #   delete :remove_alarm
+    # end
+
   resources :progresses, only: [:create]
   resources :bookmarks, only: %i[create destroy]
   resources :categories, only: %i[index show] do
