@@ -18,7 +18,7 @@ class Lesson < ApplicationRecord
 
   def self.generate_result(lesson_id, answer_id)
     lesson = find(lesson_id)
-    # 未選択の場合の処
+    # 未選択の場合の処理
     if answer_id == "default"
       {
         lesson_title:    lesson.title,

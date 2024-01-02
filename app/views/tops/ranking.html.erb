@@ -1,42 +1,45 @@
-
 <div class="row">
   <div class="col-lg-16 d-flex align-items-stretch">
     <div class="card w-100">
       <div class="container-fluid">
         <div class="container mb-5 pt-2">
-          <h1>正答数ランキング</h1>
-          <div class="row">
-            <div class="col-md-12 mb-3">
-            </div>
-          </div>
           <div class="row">
             <div class="col-sm-12">
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">名前</th>
-                  <th scope="col">正答数</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <div id="users">
-<% @user_ranking.each_with_index do |user, index| %>
-  <tr>
-    <td>
-      <%= index + 1 %>
-    </td>
-    <td>
-      <%= user.name %>
-    </td>
-    <td>
-      <%= user.correct_progress_count %>
-    </td>
-  </tr>
-<% end %>
-                  </div>
-                </tbody>
-              </table>
+
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle table-striped">
+
+                    <thead class="text-dark fs-4">
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">順位</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">名前</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">正答数</h6>
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @user_ranking.each_with_index do |user, index| %>
+                        <tr style="<%= ranking_row_height(index) %>">
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><%= index + 1 %></h6></td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1"><%= user.name %></h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0 fs-4"><%= user.correct_progress_count %></h6>
+                          </td>
+                        </tr> 
+                      <% end %>
+                    </tbody>
+
+                  </table>
+                </div>
+
             </div>
           </div>
         </div>
